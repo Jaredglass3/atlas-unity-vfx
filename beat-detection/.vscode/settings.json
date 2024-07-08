@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "atlas-vfx-graph.sln"
+    "dotnet.defaultSolution": "beat-detection.sln"
 }
