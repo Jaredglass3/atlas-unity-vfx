@@ -46,7 +46,10 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-
+*.mp3
+!internal/data/*.mp3
+*ytmp3free.cc_abominable-intelligence-protocol-of-command-warhammer-40k-music-youtubemp3free.org.mp3
+*ytmp3free.cc_perfect-cherry-blossom-original-song-youtubemp3free.org.mp3
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
