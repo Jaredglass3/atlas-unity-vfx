@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7cc08579abd044f4a8e827677d3e74cb, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -812,6 +812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313070002}
   - component: {fileID: 313070001}
+  - component: {fileID: 313070003}
   m_Layer: 0
   m_Name: Instantiate Cubes
   m_TagString: Untagged
@@ -833,7 +834,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sampleCubePrefab: {fileID: 8225493797481752452, guid: 7d3c36bf449ae0f4caa9ab8f684fcd79, type: 3}
   _maxScale: 1000
-  _radius: 50
   _audioPeer: {fileID: 1411960956}
 --- !u!4 &313070002
 Transform:
@@ -850,6 +850,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313070003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313070000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc36e2fec9604fb4e89aa73a759da619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioPeer: {fileID: 1411960956}
+  _customSkyboxMaterial: {fileID: 2100000, guid: 7cc08579abd044f4a8e827677d3e74cb, type: 2}
 --- !u!1 &378166784
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,6 +3947,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  _threshold: 0.0029
 --- !u!1001 &1505124239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5115,7 +5130,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955649342}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: 7cc08579abd044f4a8e827677d3e74cb, type: 2}
 --- !u!114 &1955649348
 MonoBehaviour:
   m_ObjectHideFlags: 0
