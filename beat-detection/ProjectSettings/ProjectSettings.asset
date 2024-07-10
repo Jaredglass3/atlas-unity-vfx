@@ -158,6 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.unityanimation
     Standalone: com.DefaultCompany.unity-animation
   buildNumber:
     Standalone: 0

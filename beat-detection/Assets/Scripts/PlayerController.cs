@@ -104,8 +104,6 @@ public class PlayerController : MonoBehaviour
         // Move the character
         characterController.Move(moveDirection * Time.deltaTime);
 
-        // ... (existing code)
-
         // Declare and initialize child direction
         Vector3 childDirection = Vector3.zero;
 
@@ -132,6 +130,11 @@ public class PlayerController : MonoBehaviour
 
         direction = new Vector3(horizontal, 0, vertical).normalized;
         direction = Quaternion.Euler(0, transform.eulerAngles.y, 0) * direction;
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 
     void Respawn()

@@ -4,17 +4,16 @@ using UnityEngine;
 public class AudioPeer : MonoBehaviour
 {
     AudioSource _audioSource;
-    public float[] _samples = new float[512];
+    public static float[] _samples = new float[512];
+    public static float[] _freqBand = new float[8]; // Reduce to 8 bands
     public float _threshold = 0.5f; // Adjust this threshold for beat detection sensitivity
     bool _beatDetected = false;
 
-    // Use this for initialization
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetSpectrumAudioSource();
@@ -24,11 +23,11 @@ public class AudioPeer : MonoBehaviour
     void GetSpectrumAudioSource()
     {
         _audioSource.GetSpectrumData(_samples, 0, FFTWindow.Blackman);
+        MakeFrequencyBands();
     }
 
     void DetectBeat()
     {
-        // Logic to detect a beat based on amplitude or other criteria
         float amplitude = 0;
         for (int i = 0; i < _samples.Length; i++)
         {
@@ -36,7 +35,6 @@ public class AudioPeer : MonoBehaviour
         }
         amplitude /= _samples.Length;
 
-        // Example: Basic threshold-based beat detection
         if (amplitude > _threshold && !_beatDetected)
         {
             _beatDetected = true;
@@ -47,7 +45,29 @@ public class AudioPeer : MonoBehaviour
         }
     }
 
-    // Method to check if a beat is currently detected
+    void MakeFrequencyBands()
+    {
+        int count = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            int sampleCount = (int)Mathf.Pow(2, i) * 2;
+            if (i == 7)
+            {
+                sampleCount += 2;
+            }
+
+            float average = 0;
+            for (int j = 0; j < sampleCount; j++)
+            {
+                average += _samples[count] * (count + 1);
+                count++;
+            }
+            average /= sampleCount;
+
+            _freqBand[i] = average * 10;
+        }
+    }
+
     public bool IsBeatDetected()
     {
         return _beatDetected;
